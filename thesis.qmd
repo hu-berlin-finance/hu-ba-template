@@ -1,0 +1,152 @@
+---
+format: 
+    typst:
+        section-numbering: 1.1.a
+margin: 
+    left: 2.5cm 
+    right: 2.5cm
+    top: 3cm
+    bottom: 3cm
+---
+
+```{=typst} 
+#page(numbering: none)[
+  #text(size: 18pt)[Firm Characteristics and the Cross Section of Stock Returns]
+  
+  #v(2cm)
+  
+  #text(size: 20pt)[Bachelor's thesis]
+  
+  #v(1.5cm)
+  
+  for acquiring the degree of \
+  Bachelor of Science (B.Sc.)
+  
+  #v(0.5cm)
+  
+  in Business Administration
+  
+  #v(0.5cm)
+  
+  at the School of Business and Economics \
+  of Humboldt-Universität zu Berlin
+  
+  #v(3cm)
+  
+  submitted by
+  
+  #v(0.3cm)
+  
+  Jane Doe
+  
+  #v(0.3cm)
+  
+  Student no. 123456
+  
+  #v(2cm)
+  
+  #text(size: 16pt)[
+  First Examiner: Prof. Alex Stomper \
+  Second Examiner: Dr. Christoph Scheuch
+  
+  #v(1.5cm)
+  
+  Berlin, February 4 2026
+  ]
+]
+```
+
+{{< pagebreak >}}
+
+# Declaration of Academic Honesty {.unnumbered}
+```{=typst}
+I, Jane Doe, hereby declare that I have not previously submitted the present work for other examinations. I wrote this work independently. All sources, including sources from the Internet, that I have reproduced in either an unaltered or modified form (particularly sources for texts, graphs, tables and images), have been acknowledged by me as such.
+
+I understand that violations of these principles will result in proceedings regarding deception or attempted deception.
+
+#v(2.5cm)
+
+
+#line(length: 6cm)
+
+#v(0.5cm)
+
+Jane Doe
+
+Berlin, February 4 2026
+```
+
+{{< pagebreak >}}
+
+# Abstract {.unnumbered}
+
+This thesis investigates the relationship between firm characteristics and expected stock returns using a comprehensive dataset of publicly traded companies. Building on the seminal work of @famafrench1992 and @famafrench1993, this study examines how factors such as market capitalization, book-to-market ratio, profitability, and investment patterns explain cross-sectional variation in average returns. The analysis confirms that size and value effects persist in the sample period, while also documenting significant return premia associated with profitability and conservative investment strategies. These findings contribute to the ongoing debate about market efficiency and the nature of risk-based versus behavioral explanations for asset pricing anomalies.
+
+{{< pagebreak >}}
+
+# Table of Contents {.unnumbered}
+```{=typst}
+#outline(title: none)
+```
+
+{{< pagebreak >}}
+
+# Introduction
+
+Understanding why some stocks earn higher average returns than others remains one of the central questions in financial economics. The Capital Asset Pricing Model (CAPM) of @sharpe1964 and @lintner1965 predicts that expected returns should be linearly related to market beta, yet decades of empirical research have documented numerous firm characteristics that appear to predict returns independently of market risk exposure.
+
+The discovery by @banz1981 that small-capitalization stocks outperform large-capitalization stocks, and by @rosenberg1985 that high book-to-market firms outperform low book-to-market firms, launched an extensive literature examining cross-sectional return predictability. @famafrench1992 synthesized these findings and showed that size and book-to-market ratio subsume the explanatory power of beta for average returns.
+
+The main research questions addressed in this thesis are:
+
+1. Do the size and value effects documented in earlier studies persist in more recent data?
+2. How do profitability and investment characteristics contribute to explaining cross-sectional return variation?
+3. What are the implications of these findings for risk-based versus behavioral theories of asset pricing?
+
+This thesis is organized as follows. @sec-literature reviews the relevant literature on firm characteristics and stock returns. @sec-data describes the data and methodology used for the analysis. @sec-results presents and discusses the empirical findings, and @sec-conclusion concludes with implications and suggestions for future research.
+
+# Related Literature {#sec-literature}
+
+The literature on firm characteristics and stock returns has evolved considerably since the initial discovery of the size effect. @famafrench1993 proposed a three-factor model incorporating market, size, and value factors, which became the standard benchmark for evaluating portfolio performance and testing asset pricing models.
+
+The theoretical foundation for why size and book-to-market should predict returns remains contested. @famafrench1996 argue these characteristics proxy for systematic risk factors related to relative distress, while @lakonishok1994 suggest behavioral explanations based on investor overreaction to past performance.
+
+More recently, @novymarx2013 documented that profitability, measured as gross profits scaled by assets, has significant explanatory power for the cross section of returns. Similarly, @famafrench2015 expanded their three-factor model to include profitability and investment factors, finding that these additions substantially improve the model's ability to explain average returns.
+
+Several studies have examined the international evidence for these factors. @famafrench2012 find that size and value premia exist across North America, Europe, Japan, and Asia Pacific, though with varying magnitudes. The investment and profitability factors have also been shown to have global relevance [@hou2015].
+
+# Data {#sec-data}
+
+The data for this study comes from the Center for Research in Security Prices (CRSP) and Compustat databases, covering all NYSE, AMEX, and NASDAQ listed firms from 1963 to 2023. Stock returns and market capitalization are obtained from CRSP, while accounting data including book equity, operating profitability, and total assets are drawn from Compustat.
+
+Following @famafrench1992, market equity is measured as price times shares outstanding at the end of June each year, and book-to-market is calculated as book equity for the fiscal year ending in the prior calendar year divided by market equity at the end of December of that year. Portfolios are formed at the end of June each year and held for the subsequent twelve months.
+
+The analysis employs @famamacbeth1973 cross-sectional regressions to estimate the return premia associated with each characteristic. For each month, individual stock returns are regressed on lagged firm characteristics, and the time series of coefficient estimates is used to compute average premia and associated t-statistics.
+
+# Results {#sec-results}
+
+This section presents the main findings of the empirical analysis.
+
+The results confirm that firm size and book-to-market ratio continue to explain significant cross-sectional variation in average stock returns. Small firms earn an average monthly premium of 0.28% over large firms after controlling for market beta, and high book-to-market firms outperform low book-to-market firms by approximately 0.35% per month.
+
+Consistent with @novymarx2013 and @famafrench2015, profitability emerges as a strong predictor of returns. Firms with high gross profitability earn significantly higher returns than low-profitability firms, with an estimated premium of 0.31% per month. The investment factor also shows significant predictive power: firms with conservative investment policies outperform aggressive investors by 0.24% per month.
+
+Importantly, the profitability and investment factors retain their explanatory power even after controlling for size and book-to-market, suggesting they capture distinct sources of return variation. Subsample analysis reveals that these patterns are relatively stable across different time periods, though the magnitude of the size premium has diminished somewhat in recent decades.
+
+To ensure the validity of the findings, several robustness checks are performed. The results hold when using alternative measures of profitability and investment, when excluding financial firms and utilities, and when employing value-weighted rather than equal-weighted portfolio returns.
+
+# Conclusion {#sec-conclusion}
+
+This thesis has analyzed the relationship between firm characteristics and the cross section of stock returns. The main findings confirm that size, book-to-market, profitability, and investment patterns all contribute significant explanatory power for average returns, consistent with the five-factor model of @famafrench2015.
+
+The persistence of these return premia across different sample periods and robustness to various methodological choices suggests they reflect fundamental features of the return-generating process rather than statistical artifacts. However, the results do not definitively resolve the debate between risk-based and behavioral explanations, as both frameworks can potentially accommodate the observed patterns.
+
+Based on the findings, practitioners should consider multifactor models that incorporate profitability and investment characteristics alongside traditional size and value factors when evaluating portfolio performance and constructing investment strategies.
+
+This study has several limitations that should be addressed in future research. The analysis focuses exclusively on US equities, and extending the investigation to international markets would provide valuable out-of-sample evidence. Additionally, exploring the interaction effects between characteristics and macroeconomic conditions could shed light on the underlying economic mechanisms driving these return patterns.
+
+{{< pagebreak >}}
+
+```{=typst}
+#bibliography("references.bib", title: "References", style: "apa")
+```
