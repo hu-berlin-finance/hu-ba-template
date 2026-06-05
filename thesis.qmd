@@ -7,6 +7,9 @@ margin:
     right: 2.5cm
     top: 3cm
     bottom: 3cm
+execute:
+    echo: false
+    warning: false
 ---
 
 ```{=typst} 
@@ -46,47 +49,36 @@ margin:
   #v(2cm)
   
   #text(size: 16pt)[
-  First Examiner: Prof. Alex Stomper \
-  Second Examiner: Dr. Christoph Scheuch
+  First Examiner: Dr. Christoph Scheuch \
+  Second Examiner: Prof. Alex Stomper
   
   #v(1.5cm)
   
-  Berlin, February 4 2026
+  Berlin, June 6 2026
   ]
 ]
 ```
 
 {{< pagebreak >}}
 
-# Declaration of Academic Honesty {.unnumbered}
+# Table of Contents {.unnumbered .unlisted}
+
 ```{=typst}
-I, Jane Doe, hereby declare that I have not previously submitted the present work for other examinations. I wrote this work independently. All sources, including sources from the Internet, that I have reproduced in either an unaltered or modified form (particularly sources for texts, graphs, tables and images), have been acknowledged by me as such.
-
-I understand that violations of these principles will result in proceedings regarding deception or attempted deception.
-
-#v(2.5cm)
-
-
-#line(length: 6cm)
-
-#v(0.5cm)
-
-Jane Doe
-
-Berlin, February 4 2026
+#outline(title: none)
 ```
 
 {{< pagebreak >}}
 
-# Abstract {.unnumbered}
-
-This thesis investigates the relationship between firm characteristics and expected stock returns using a comprehensive dataset of publicly traded companies. Building on the seminal work of @famafrench1992 and @famafrench1993, this study examines how factors such as market capitalization, book-to-market ratio, profitability, and investment patterns explain cross-sectional variation in average returns. The analysis confirms that size and value effects persist in the sample period, while also documenting significant return premia associated with profitability and conservative investment strategies. These findings contribute to the ongoing debate about market efficiency and the nature of risk-based versus behavioral explanations for asset pricing anomalies.
+# List of Figures {.unnumbered}
+```{=typst}
+#outline(title: none, target: figure.where(kind: "quarto-float-fig"))
+```
 
 {{< pagebreak >}}
 
-# Table of Contents {.unnumbered}
+# List of Tables {.unnumbered}
 ```{=typst}
-#outline(title: none)
+#outline(title: none, target: figure.where(kind: "quarto-float-tbl"))
 ```
 
 {{< pagebreak >}}
@@ -121,6 +113,29 @@ The data for this study comes from the Center for Research in Security Prices (C
 
 Following @famafrench1992, market equity is measured as price times shares outstanding at the end of June each year, and book-to-market is calculated as book equity for the fiscal year ending in the prior calendar year divided by market equity at the end of December of that year. Portfolios are formed at the end of June each year and held for the subsequent twelve months.
 
+@tbl-summary reports descriptive statistics for the main firm characteristics used in the analysis.
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Summary statistics for the main firm characteristics."
+summary_stats <- data.frame(
+  Characteristic = c(
+    "Market equity ($M)",
+    "Book-to-market",
+    "Gross profitability",
+    "Asset growth"
+  ),
+  Mean = c(2841.3, 0.72, 0.31, 0.14),
+  Median = c(486.2, 0.61, 0.28, 0.09),
+  SD = c(8123.7, 0.54, 0.19, 0.27),
+  N = c(124530, 124530, 124530, 124530)
+)
+
+knitr::kable(summary_stats, digits = 2)
+```
+
+# Methodology {#sec-methodology}
+
 The analysis employs @famamacbeth1973 cross-sectional regressions to estimate the return premia associated with each characteristic. For each month, individual stock returns are regressed on lagged firm characteristics, and the time series of coefficient estimates is used to compute average premia and associated t-statistics.
 
 # Results {#sec-results}
@@ -129,7 +144,25 @@ This section presents the main findings of the empirical analysis.
 
 The results confirm that firm size and book-to-market ratio continue to explain significant cross-sectional variation in average stock returns. Small firms earn an average monthly premium of 0.28% over large firms after controlling for market beta, and high book-to-market firms outperform low book-to-market firms by approximately 0.35% per month.
 
-Consistent with @novymarx2013 and @famafrench2015, profitability emerges as a strong predictor of returns. Firms with high gross profitability earn significantly higher returns than low-profitability firms, with an estimated premium of 0.31% per month. The investment factor also shows significant predictive power: firms with conservative investment policies outperform aggressive investors by 0.24% per month.
+Consistent with @novymarx2013 and @famafrench2015, profitability emerges as a strong predictor of returns. Firms with high gross profitability earn significantly higher returns than low-profitability firms, with an estimated premium of 0.31% per month. The investment factor also shows significant predictive power: firms with conservative investment policies outperform aggressive investors by 0.24% per month. @fig-premia summarizes the estimated monthly premia across the four characteristics.
+
+```{r}
+#| label: fig-premia
+#| fig-cap: "Average monthly return premia by firm characteristic."
+#| fig-width: 6
+#| fig-height: 3.5
+characteristics <- c("Size", "Value", "Profitability", "Investment")
+premia <- c(0.28, 0.35, 0.31, 0.24)
+
+barplot(
+  premia,
+  names.arg = characteristics,
+  ylab = "Monthly premium (%)",
+  ylim = c(0, 0.4),
+  col = "steelblue",
+  border = NA
+)
+```
 
 Importantly, the profitability and investment factors retain their explanatory power even after controlling for size and book-to-market, suggesting they capture distinct sources of return variation. Subsample analysis reveals that these patterns are relatively stable across different time periods, though the magnitude of the size premium has diminished somewhat in recent decades.
 
@@ -149,4 +182,25 @@ This study has several limitations that should be addressed in future research. 
 
 ```{=typst}
 #bibliography("references.bib", title: "References", style: "apa")
+```
+
+
+{{< pagebreak >}}
+
+# Declaration of Academic Honesty {.unnumbered}
+```{=typst}
+I, Jane Doe, hereby declare that I have not previously submitted the present work for other examinations. I wrote this work independently. All sources, including sources from the Internet, that I have reproduced in either an unaltered or modified form (particularly sources for texts, graphs, tables and images), have been acknowledged by me as such.
+
+I understand that violations of these principles will result in proceedings regarding deception or attempted deception.
+
+#v(2.5cm)
+
+
+#line(length: 6cm)
+
+#v(0.5cm)
+
+Jane Doe
+
+Berlin, February 4 2026
 ```
