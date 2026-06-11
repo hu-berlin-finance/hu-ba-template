@@ -1,4 +1,9 @@
 ---
+title: Firm Characteristics and the Cross Section of Stock Returns
+student-name: Jane Doe
+student-number: 123456
+first-examiner: Dr. Christoph Scheuch
+second-examiner: Prof. Alex Stomper
 format: 
     typst:
         section-numbering: 1.1.a
@@ -14,7 +19,7 @@ execute:
 
 ```{=typst} 
 #page(numbering: none)[
-  #text(size: 18pt)[Firm Characteristics and the Cross Section of Stock Returns]
+  #text(size: 18pt)[{{< meta title >}}]
   
   #v(2cm)
   
@@ -40,21 +45,21 @@ execute:
   
   #v(0.3cm)
   
-  Jane Doe
+  {{< meta student-name >}}
   
   #v(0.3cm)
   
-  Student no. 123456
+  Student no. {{< meta student-number >}}
   
   #v(2cm)
   
   #text(size: 16pt)[
-  First Examiner: Dr. Christoph Scheuch \
-  Second Examiner: Prof. Alex Stomper
+  First Examiner: {{< meta first-examiner >}} \
+  Second Examiner: {{< meta second-examiner >}}
   
   #v(1.5cm)
   
-  Berlin, June 6 2026
+  Berlin, #datetime.today().display("[month repr:long] [day], [year]")
   ]
 ]
 ```
@@ -189,7 +194,7 @@ This study has several limitations that should be addressed in future research. 
 
 # Declaration of Academic Honesty {.unnumbered}
 ```{=typst}
-I, Jane Doe, hereby declare that I have not previously submitted the present work for other examinations. I wrote this work independently. All sources, including sources from the Internet, that I have reproduced in either an unaltered or modified form (particularly sources for texts, graphs, tables and images), have been acknowledged by me as such.
+I, {{< meta student-name >}}, hereby declare that I have not previously submitted the present work for other examinations. I wrote this work independently. All sources, including sources from the Internet, that I have reproduced in either an unaltered or modified form (particularly sources for texts, graphs, tables and images), have been acknowledged by me as such.
 
 I understand that violations of these principles will result in proceedings regarding deception or attempted deception.
 
@@ -200,7 +205,57 @@ I understand that violations of these principles will result in proceedings rega
 
 #v(0.5cm)
 
+{{< meta student-name >}}
+
+Berlin, #datetime.today().display("[month repr:long] [day], [year]")
+```
+
+{{< pagebreak >}}
+
+# Declaration on the Use of Generative AI Tools {.unnumbered}
+```{=typst}
+I, {{< meta student-name >}}, hereby declare that, when using tools based on generative artificial intelligence, I have fully listed these tools in "Overview of Tools Used" below. This overview includes the product name, the source of access, for example URL, the software functions used, and the scope of use. This includes, in particular, typical prompts as well as other typical forms of use, such as autocomplete, code completion, code generation, debugging, data analysis, or agentic processing steps.
+
+I further declare that, in preparing this bachelor's thesis, I worked independently throughout and maintained control over the use of IT- or AI-supported writing, programming, and analysis tools. All texts, data analyses, program code components, tables, figures, and other results generated, suggested, or edited by such tools have been independently reviewed by me, and I assume responsibility for their accuracy.
+
+I further declare that I did not enter, upload, or otherwise provide any confidential, personal, proprietary, or other non-public data into such tools unless this was expressly permitted.
+
+I understand that violations of these principles will result in proceedings regarding deception or attempted deception.
+
+#v(2.5cm)
+
+#line(length: 6cm)
+
+#v(0.5cm)
+
 Jane Doe
 
-Berlin, February 4 2026
+Berlin, #datetime.today().display("[month repr:long] [day], [year]")
+
+#v(1cm)
+```
+
+## Overview of Tools Used {.unnumbered .unlisted}
+
+```{=typst}
+#table(
+  columns: (1fr, 1.5fr, 2fr, 3.5fr),
+  inset: 6pt,
+  align: left,
+  table.header(
+    [*Product*],
+    [*Access*],
+    [*Functions*],
+    [*Scope*],
+  ),
+  [ChatGPT, OpenAI],
+  [https://chatgpt.com],
+  [Translation; stylistic adaptation; drafting and revision of academic declaration text],
+  [Used to translate a German declaration on the use of generative AI tools into English, align the wording with the style of an existing declaration of academic honesty, suggest an appropriate title, and draft an example overview entry. The generated text was reviewed, edited where necessary, and accepted under my own responsibility.],
+
+  [Claude, Anthropic],
+  [https://claude.ai],
+  [Code generation; code completion; debugging],
+  [Used to generate illustrative program code for the empirical analysis, including data preparation, regression estimation, and visualization routines. The generated code was reviewed, tested, and modified where necessary before being incorporated into the template.],
+)
 ```
