@@ -1,5 +1,5 @@
 ---
-title: Firm Characteristics and the Cross Section of Stock Returns
+thesis-title: Firm Characteristics and the Cross Section of Stock Returns
 student-name: Jane Doe
 student-number: 123456
 first-examiner: Dr. Christoph Scheuch
@@ -19,7 +19,7 @@ execute:
 
 ```{=typst} 
 #page(numbering: none)[
-  #text(size: 18pt)[{{< meta title >}}]
+  #text(size: 18pt)[{{< meta thesis-title >}}]
   
   #v(2cm)
   
