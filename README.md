@@ -23,6 +23,6 @@ Replace all placeholder content with your own research before submission.
 
 ## Files
 
-- `thesis.qmd` — Main Quarto document
-- `thesis.pdf` - Rendered PDF output
+- `thesis_EN.qmd` / `thesis_DE.qmd` — Main Quarto document
+- `thesis_EN.pdf` / `thesis_DE.pdf` - Rendered PDF output
 - `references.bib` — BibTeX bibliography file

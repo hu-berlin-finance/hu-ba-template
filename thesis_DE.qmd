@@ -1,0 +1,266 @@
+---
+thesis-title: Unternehmenscharakteristika und der Querschnitt von Aktienrenditen
+student-name: Jane Doe
+student-number: 123456
+first-examiner: Dr. Christoph Scheuch
+second-examiner: Prof. Alex Stomper
+lang: de
+format: 
+    typst:
+        section-numbering: 1.1.a
+margin: 
+    left: 2.5cm 
+    right: 2.5cm
+    top: 3cm
+    bottom: 3cm
+execute:
+    echo: false
+    warning: false
+---
+
+```{=typst} 
+#page(numbering: none)[
+  #text(size: 18pt)[{{< meta thesis-title >}}]
+  
+  #v(1.5cm)
+  
+  #text(size: 20pt)[Bachelorarbeit]
+  
+  #v(1.5cm)
+  
+  zur Erlangung des akademischen Grades \
+  Bachelor of Science (B.Sc.)
+  
+  #v(0.5cm)
+  
+  in Betriebswirtschaftslehre
+  
+  #v(0.5cm)
+  
+  an der Wirtschaftswissenschaftlichen Fakultät \
+  der Humboldt-Universität zu Berlin
+  
+  #v(1.5cm)
+  
+  vorgelegt von
+  
+  #v(0.3cm)
+  
+  {{< meta student-name >}}
+  
+  #v(0.3cm)
+  
+  Matrikel-Nr. {{< meta student-number >}}
+  
+  #v(1.5cm)
+  
+  #text(size: 16pt)[
+  Erstprüfer*in: {{< meta first-examiner >}} \
+  Zweitprüfer*in: {{< meta second-examiner >}}
+  
+  #v(1.5cm)
+  
+  Berlin, #datetime.today().display("[day padding:zero].[month padding:zero].[year]")
+  ]
+]
+```
+
+{{< pagebreak >}}
+
+# Inhaltsverzeichnis {.unnumbered .unlisted}
+
+```{=typst}
+#outline(title: none)
+```
+
+{{< pagebreak >}}
+
+# Abbildungsverzeichnis {.unnumbered}
+```{=typst}
+#outline(title: none, target: figure.where(kind: "quarto-float-fig"))
+```
+
+{{< pagebreak >}}
+
+# Tabellenverzeichnis {.unnumbered}
+```{=typst}
+#outline(title: none, target: figure.where(kind: "quarto-float-tbl"))
+```
+
+{{< pagebreak >}}
+
+# Einleitung
+
+Die Frage, warum einige Aktien höhere Durchschnittsrenditen erzielen als andere, zählt nach wie vor zu den zentralen Fragestellungen der Finanzökonomie. Das Capital Asset Pricing Model (CAPM) von @sharpe1964 und @lintner1965 sagt vorher, dass die erwarteten Renditen in einem linearen Zusammenhang mit dem Markt-Beta stehen sollten. Dennoch hat die empirische Forschung über Jahrzehnte hinweg zahlreiche Unternehmenscharakteristika dokumentiert, die Renditen offenbar unabhängig vom Marktrisiko prognostizieren.
+
+Die Entdeckung von @banz1981, dass Aktien mit geringer Marktkapitalisierung Aktien mit hoher Marktkapitalisierung übertreffen, sowie von @rosenberg1985, dass Unternehmen mit hohem Buch-Marktwert-Verhältnis Unternehmen mit niedrigem Buch-Marktwert-Verhältnis übertreffen, begründete eine umfangreiche Literatur zur Querschnittsprognose von Renditen. @famafrench1992 fassten diese Erkenntnisse zusammen und zeigten, dass Unternehmensgröße und Buch-Marktwert-Verhältnis die Erklärungskraft des Beta für Durchschnittsrenditen vollständig aufnehmen.
+
+Die zentralen Forschungsfragen dieser Arbeit lauten:
+
+1. Bestehen die in früheren Studien dokumentierten Größen- und Wert-Effekte auch in neueren Daten fort?
+2. Welchen Beitrag leisten Profitabilitäts- und Investitionscharakteristika zur Erklärung der Querschnittsvariation von Renditen?
+3. Welche Implikationen ergeben sich aus diesen Erkenntnissen für risikobasierte gegenüber verhaltensökonomischen Theorien der Vermögenspreisbildung?
+
+Die Arbeit ist wie folgt aufgebaut. @sec-literature gibt einen Überblick über die relevante Literatur zu Unternehmenscharakteristika und Aktienrenditen. @sec-data beschreibt die für die Analyse verwendeten Daten und die Methodik. @sec-results stellt die empirischen Ergebnisse vor und diskutiert sie, und @sec-conclusion schließt mit Implikationen und Vorschlägen für die zukünftige Forschung.
+
+# Literaturüberblick {#sec-literature}
+
+Die Literatur zu Unternehmenscharakteristika und Aktienrenditen hat sich seit der erstmaligen Entdeckung des Größeneffekts erheblich weiterentwickelt. @famafrench1993 schlugen ein Dreifaktorenmodell vor, das die Faktoren Markt, Größe und Wert umfasst und sich zum Standardmaßstab für die Bewertung der Portfolioperformance sowie für das Testen von Asset-Pricing-Modellen entwickelte.
+
+Die theoretische Grundlage dafür, warum Größe und Buch-Marktwert-Verhältnis Renditen prognostizieren sollten, bleibt umstritten. @famafrench1996 argumentieren, dass diese Charakteristika als Stellvertreter für systematische Risikofaktoren im Zusammenhang mit relativer finanzieller Notlage dienen, während @lakonishok1994 verhaltensökonomische Erklärungen vorschlagen, die auf einer Überreaktion der Anleger auf die vergangene Wertentwicklung beruhen.
+
+In jüngerer Zeit dokumentierte @novymarx2013, dass die Profitabilität, gemessen als Bruttogewinn skaliert an der Bilanzsumme, erhebliche Erklärungskraft für den Querschnitt der Renditen besitzt. Ebenso erweiterten @famafrench2015 ihr Dreifaktorenmodell um Profitabilitäts- und Investitionsfaktoren und stellten fest, dass diese Ergänzungen die Fähigkeit des Modells zur Erklärung von Durchschnittsrenditen wesentlich verbessern.
+
+Mehrere Studien haben die internationale Evidenz für diese Faktoren untersucht. @famafrench2012 finden, dass Größen- und Wertprämien in Nordamerika, Europa, Japan und im asiatisch-pazifischen Raum bestehen, wenngleich in unterschiedlicher Ausprägung. Auch für die Investitions- und Profitabilitätsfaktoren wurde eine globale Relevanz nachgewiesen [@hou2015].
+
+# Daten {#sec-data}
+
+Die Daten für diese Studie stammen aus den Datenbanken des Center for Research in Security Prices (CRSP) und Compustat und umfassen alle an der NYSE, AMEX und NASDAQ notierten Unternehmen im Zeitraum von 1963 bis 2023. Aktienrenditen und Marktkapitalisierung werden CRSP entnommen, während Rechnungslegungsdaten wie Buchwert des Eigenkapitals, operative Profitabilität und Bilanzsumme aus Compustat stammen.
+
+In Anlehnung an @famafrench1992 wird der Marktwert des Eigenkapitals als Kurs multipliziert mit der Anzahl ausstehender Aktien zum Ende des Monats Juni eines jeden Jahres gemessen, und das Buch-Marktwert-Verhältnis wird als Buchwert des Eigenkapitals für das im vorangegangenen Kalenderjahr endende Geschäftsjahr geteilt durch den Marktwert des Eigenkapitals zum Ende des Dezembers dieses Jahres berechnet. Die Portfolios werden zum Ende des Monats Juni eines jeden Jahres gebildet und für die folgenden zwölf Monate gehalten.
+
+@tbl-summary weist deskriptive Statistiken für die wichtigsten in der Analyse verwendeten Unternehmenscharakteristika aus.
+
+```{r}
+#| label: tbl-summary
+#| tbl-cap: "Deskriptive Statistiken für die wichtigsten Unternehmenscharakteristika."
+summary_stats <- data.frame(
+  Charakteristikum = c(
+    "Marktkapitalisierung (Mio. $)",
+    "Buch-Marktwert-Verhältnis",
+    "Bruttoprofitabilität",
+    "Anlagenwachstum"
+  ),
+  Mittelwert = c(2841.3, 0.72, 0.31, 0.14),
+  Median = c(486.2, 0.61, 0.28, 0.09),
+  SD = c(8123.7, 0.54, 0.19, 0.27),
+  N = c(124530, 124530, 124530, 124530)
+)
+
+knitr::kable(
+  summary_stats,
+  digits = 2,
+  format.args = list(decimal.mark = ",", big.mark = ".")
+)
+```
+
+# Methodik {#sec-methodology}
+
+Die Analyse verwendet Querschnittsregressionen nach @famamacbeth1973, um die mit jedem Charakteristikum verbundenen Renditeprämien zu schätzen. Für jeden Monat werden die Renditen einzelner Aktien auf die verzögerten Unternehmenscharakteristika regressiert, und die Zeitreihe der geschätzten Koeffizienten wird verwendet, um durchschnittliche Prämien und die zugehörigen t-Statistiken zu berechnen.
+
+# Ergebnisse {#sec-results}
+
+Dieser Abschnitt stellt die wesentlichen Ergebnisse der empirischen Analyse vor.
+
+Die Ergebnisse bestätigen, dass Unternehmensgröße und Buch-Marktwert-Verhältnis weiterhin einen signifikanten Teil der Querschnittsvariation durchschnittlicher Aktienrenditen erklären. Kleine Unternehmen erzielen nach Kontrolle des Markt-Beta eine durchschnittliche monatliche Prämie von 0,28 % gegenüber großen Unternehmen, und Unternehmen mit hohem Buch-Marktwert-Verhältnis übertreffen Unternehmen mit niedrigem Buch-Marktwert-Verhältnis um rund 0,35 % pro Monat.
+
+Im Einklang mit @novymarx2013 und @famafrench2015 erweist sich die Profitabilität als starker Prädiktor der Renditen. Unternehmen mit hoher Bruttoprofitabilität erzielen signifikant höhere Renditen als Unternehmen mit niedriger Profitabilität, mit einer geschätzten Prämie von 0,31 % pro Monat. Auch der Investitionsfaktor weist signifikante Prognosekraft auf: Unternehmen mit konservativer Investitionspolitik übertreffen aggressiv investierende Unternehmen um 0,24 % pro Monat. @fig-premia fasst die geschätzten monatlichen Prämien für die vier Charakteristika zusammen.
+
+```{r}
+#| label: fig-premia
+#| fig-cap: "Durchschnittliche monatliche Renditeprämien nach Unternehmenscharakteristikum."
+#| fig-width: 6
+#| fig-height: 3.5
+characteristics <- c("Größe", "Wert", "Profitabilität", "Investition")
+premia <- c(0.28, 0.35, 0.31, 0.24)
+
+barplot(
+  premia,
+  names.arg = characteristics,
+  ylab = "Monatliche Prämie (%)",
+  ylim = c(0, 0.4),
+  col = "steelblue",
+  border = NA
+)
+```
+
+Bemerkenswert ist, dass die Profitabilitäts- und Investitionsfaktoren ihre Erklärungskraft auch nach Kontrolle von Größe und Buch-Marktwert-Verhältnis behalten, was darauf hindeutet, dass sie eigenständige Quellen der Renditevariation erfassen. Die Teilstichprobenanalyse zeigt, dass diese Muster über verschiedene Zeiträume hinweg relativ stabil sind, wenngleich das Ausmaß der Größenprämie in den letzten Jahrzehnten etwas zurückgegangen ist.
+
+Um die Validität der Ergebnisse sicherzustellen, werden mehrere Robustheitsprüfungen durchgeführt. Die Ergebnisse bleiben bestehen, wenn alternative Maße für Profitabilität und Investition verwendet werden, wenn Finanzunternehmen und Versorger ausgeschlossen werden und wenn wertgewichtete statt gleichgewichteter Portfoliorenditen verwendet werden.
+
+# Fazit {#sec-conclusion}
+
+Die vorliegende Arbeit hat den Zusammenhang zwischen Unternehmenscharakteristika und dem Querschnitt von Aktienrenditen untersucht. Die wesentlichen Ergebnisse bestätigen, dass Größe, Buch-Marktwert-Verhältnis, Profitabilität und Investitionsmuster sämtlich einen signifikanten Beitrag zur Erklärung durchschnittlicher Renditen leisten, im Einklang mit dem Fünffaktorenmodell von @famafrench2015.
+
+Die Beständigkeit dieser Renditeprämien über verschiedene Stichprobenzeiträume hinweg sowie ihre Robustheit gegenüber unterschiedlichen methodischen Entscheidungen deutet darauf hin, dass sie grundlegende Eigenschaften des renditegenerierenden Prozesses widerspiegeln und keine statistischen Artefakte darstellen. Die Ergebnisse lösen die Debatte zwischen risikobasierten und verhaltensökonomischen Erklärungen jedoch nicht abschließend, da beide Ansätze die beobachteten Muster potenziell erklären können.
+
+Auf Grundlage der Ergebnisse sollten Praktiker bei der Bewertung der Portfolioperformance und der Konstruktion von Anlagestrategien Multifaktormodelle in Betracht ziehen, die neben den traditionellen Größen- und Wertfaktoren auch Profitabilitäts- und Investitionscharakteristika einbeziehen.
+
+Diese Studie weist mehrere Einschränkungen auf, die in zukünftiger Forschung adressiert werden sollten. Die Analyse beschränkt sich ausschließlich auf US-amerikanische Aktien; eine Ausweitung der Untersuchung auf internationale Märkte würde wertvolle Out-of-Sample-Evidenz liefern. Darüber hinaus könnte die Untersuchung der Wechselwirkungen zwischen Charakteristika und makroökonomischen Rahmenbedingungen Aufschluss über die ökonomischen Mechanismen geben, die diesen Renditemustern zugrunde liegen.
+
+{{< pagebreak >}}
+
+```{=typst}
+#bibliography("references.bib", title: "Literaturverzeichnis", style: "apa")
+```
+
+
+{{< pagebreak >}}
+
+# Erklärung zur Urheberschaft {.unnumbered}
+```{=typst}
+Hiermit erkläre ich, {{< meta student-name >}}, dass ich die vorliegende Arbeit noch nicht für andere Prüfungen eingereicht habe. Ich habe die Arbeit selbständig verfasst. Sämtliche Quellen einschließlich Internetquellen, die ich unverändert oder abgewandelt wiedergegeben habe, insbesondere Quellen für Texte, Grafiken, Tabellen und Bilder, habe ich als solche kenntlich gemacht.
+
+Ich bin mir darüber bewusst, dass bei Verstößen gegen diese Grundsätze ein Verfahren wegen Täuschungsversuchs bzw. Täuschung eingeleitet wird.
+
+#v(2.5cm)
+
+
+#line(length: 6cm)
+
+#v(0.5cm)
+
+{{< meta student-name >}}
+
+Berlin, #datetime.today().display("[day padding:zero].[month padding:zero].[year]")
+```
+
+{{< pagebreak >}}
+
+# Erklärung zur Nutzung generativer KI-Hilfsmittel {.unnumbered}
+```{=typst}
+Hiermit erkläre ich, {{< meta student-name >}}, dass ich bei der Nutzung von Hilfsmitteln, die auf generativer künstlicher Intelligenz basieren, diese Hilfsmittel in der nachstehenden „Übersicht der verwendeten Hilfsmittel" vollständig aufgeführt habe. Diese Übersicht umfasst den Produktnamen, die Bezugsquelle, beispielsweise die URL, die genutzten Softwarefunktionen sowie den Umfang der Nutzung. Dies schließt insbesondere typische Prompts sowie andere typische Nutzungsformen wie Autovervollständigung, Codevervollständigung, Codegenerierung, Debugging, Datenanalyse oder agentische Verarbeitungsschritte ein.
+
+Bei der Anfertigung dieser Bachelorarbeit habe ich durchgängig selbstständig gearbeitet und beim Einsatz IT- bzw. KI-gestützter Schreib-, Programmier- und Analysewerkzeuge steuernd gearbeitet. Alle von solchen Hilfsmitteln generierten, vorgeschlagenen oder bearbeiteten Texte, Datenanalysen, Programmcodebestandteile, Tabellen, Abbildungen und sonstigen Ergebnisse habe ich eigenständig überprüft und ich übernehme die Verantwortung für deren Richtigkeit.
+
+Ich versichere ferner, dass ich keine vertraulichen, personenbezogenen, urheberrechtlich geschützten oder sonstigen nicht öffentlichen Daten in solche Hilfsmittel eingegeben, hochgeladen oder anderweitig bereitgestellt habe, sofern dies nicht ausdrücklich gestattet war.
+
+Ich bin mir darüber bewusst, dass bei Verstößen gegen diese Grundsätze ein Verfahren wegen Täuschungsversuchs bzw. Täuschung eingeleitet wird.
+
+#v(2.5cm)
+
+#line(length: 6cm)
+
+#v(0.5cm)
+
+Jane Doe
+
+Berlin, #datetime.today().display("[day padding:zero].[month padding:zero].[year]")
+
+#v(1cm)
+```
+
+## Übersicht der verwendeten Hilfsmittel {.unnumbered .unlisted}
+
+```{=typst}
+#table(
+  columns: (1fr, 1.5fr, 2fr, 3.5fr),
+  inset: 6pt,
+  align: left,
+  table.header(
+    [*Produkt*],
+    [*Zugang*],
+    [*Funktionen*],
+    [*Umfang*],
+  ),
+  [ChatGPT, OpenAI],
+  [https://chatgpt.com],
+  [Übersetzung; stilistische Anpassung; Entwurf und Überarbeitung von Erklärungstexten],
+  [Eingesetzt zur sprachlichen und stilistischen Überarbeitung der Erklärung zur Nutzung generativer KI-Hilfsmittel, zur Angleichung der Formulierungen an den Stil einer bestehenden Selbstständigkeitserklärung, zur Erarbeitung eines geeigneten Titels sowie zum Entwurf eines Beispieleintrags für die Übersicht. Der generierte Text wurde überprüft, wo nötig bearbeitet und unter eigener Verantwortung übernommen.],
+
+  [Claude, Anthropic],
+  [https://claude.ai],
+  [Code-Generierung; Code-Vervollständigung; Debugging],
+  [Eingesetzt zur Erzeugung beispielhaften Programmcodes für die empirische Analyse, einschließlich Datenaufbereitung, Regressionsschätzung und Visualisierungsroutinen. Der generierte Code wurde überprüft, getestet und, wo nötig, vor der Übernahme in die Vorlage angepasst.],
+)
+```

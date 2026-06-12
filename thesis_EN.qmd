@@ -216,7 +216,7 @@ Berlin, #datetime.today().display("[month repr:long] [day], [year]")
 ```{=typst}
 I, {{< meta student-name >}}, hereby declare that, when using tools based on generative artificial intelligence, I have fully listed these tools in "Overview of Tools Used" below. This overview includes the product name, the source of access, for example URL, the software functions used, and the scope of use. This includes, in particular, typical prompts as well as other typical forms of use, such as autocomplete, code completion, code generation, debugging, data analysis, or agentic processing steps.
 
-I further declare that, in preparing this bachelor's thesis, I worked independently throughout and maintained control over the use of IT- or AI-supported writing, programming, and analysis tools. All texts, data analyses, program code components, tables, figures, and other results generated, suggested, or edited by such tools have been independently reviewed by me, and I assume responsibility for their accuracy.
+In preparing this bachelor's thesis, I worked independently throughout and maintained control over the use of IT- or AI-supported writing, programming, and analysis tools. All texts, data analyses, program code components, tables, figures, and other results generated, suggested, or edited by such tools have been independently reviewed by me, and I assume responsibility for their accuracy.
 
 I further declare that I did not enter, upload, or otherwise provide any confidential, personal, proprietary, or other non-public data into such tools unless this was expressly permitted.
 
