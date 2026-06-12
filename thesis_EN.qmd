@@ -21,7 +21,7 @@ execute:
 #page(numbering: none)[
   #text(size: 18pt)[{{< meta thesis-title >}}]
   
-  #v(2cm)
+  #v(1.5cm)
   
   #text(size: 20pt)[Bachelor's thesis]
   
@@ -39,7 +39,7 @@ execute:
   at the School of Business and Economics \
   of Humboldt-Universität zu Berlin
   
-  #v(3cm)
+  #v(1.5cm)
   
   submitted by
   
@@ -51,7 +51,7 @@ execute:
   
   Student no. {{< meta student-number >}}
   
-  #v(2cm)
+  #v(1.5cm)
   
   #text(size: 16pt)[
   First Examiner: {{< meta first-examiner >}} \
